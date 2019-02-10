@@ -14,5 +14,23 @@ $(document).ready(function() {
     $('#other-title').hide();
   });
 
+  //using the Change method to change the T Shirt selection dropdown menu
+  $('#design').on('change', function (){
+    let selectedValue = $(this).val();
+    //hides heart options and shows puns
+    if (selectedValue === 'js puns')
+    {
+      $('.hidePun').show();
+      $('.hideHeart').hide();
+    }
+    //hides pun options and shows heart colors
+    else if(selectedValue === 'heart js')
+    {
+      $('.hideHeart').show();
+      $('.hidePun').hide();
+    }
+  });
+
+
 
 });
