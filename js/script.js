@@ -33,4 +33,32 @@ $(document).ready(function() {
 
 
 
+
+//These variables grey out an activity when a user selects one that conflicts with other
+var $act1 = $('.activities').find('input[value="2"]').click(function() {
+  $act2.prop('disabled', $act1.is(':checked'));
+  $("#chk4").toggleClass("grey");
+});
+var $act2 =  $('.activities').find('input[value="4"]').click(function() {
+  $act1.prop('disabled', $act2.is(':checked'));
+  $("#chk2").toggleClass("grey");
+});
+var $act4 = $('.activities').find('input[value="3"]').click(function() {
+  $act5.prop('disabled', $act4.is(':checked'));
+  $("#chk5").toggleClass("grey");
+});
+var $act5 =  $('.activities').find('input[value="5"]').click(function() {
+  $act4.prop('disabled', $act5.is(':checked'));
+  $("#chk3").toggleClass("grey");
+});
+
+
+//This function updates the total cost of the event when the user checks the boxes
+$('.box').change(function(){
+   var total = 0;
+   $('.box:checked').each(function(){
+        total+=parseFloat($(this).closest('label').find('.amount').text());
+   });
+   $('#total').text(total);
+});
 });

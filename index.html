@@ -81,13 +81,14 @@
 
       <fieldset class="activities">
         <legend>Register for Activities</legend>
-        <label><input type="checkbox" name="all"> Main Conference — $200</label>
-        <label><input type="checkbox" name="js-frameworks"> JavaScript Frameworks Workshop — Tuesday 9am-12pm, $100</label>
-        <label><input type="checkbox" name="js-libs"> JavaScript Libraries Workshop — Tuesday 1pm-4pm, $100</label>
-        <label><input type="checkbox" name="express"> Express Workshop — Tuesday 9am-12pm, $100</label>
-        <label><input type="checkbox" name="node"> Node.js Workshop — Tuesday 1pm-4pm, $100</label>
-        <label><input type="checkbox" name="build-tools"> Build tools Workshop — Wednesday 9am-12pm, $100</label>
-        <label><input type="checkbox" name="npm"> npm Workshop — Wednesday 1pm-4pm, $100</label>
+        <label id="chk1"><input class="box" type="checkbox" name="all" value='1'> Main Conference — $<span class="amount">200</span></label>
+        <label id="chk2"><input class="box" type="checkbox" name="js-frameworks" value='2'> JavaScript Frameworks Workshop — Tuesday 9am-12pm, $<span class="amount">100</span></label>
+        <label id="chk3"><input class="box" type="checkbox" name="js-libs" value='3'> JavaScript Libraries Workshop — Tuesday 1pm-4pm, $<span class="amount">100</span></label>
+        <label id="chk4"><input class="box" type="checkbox" name="express" value='4'> Express Workshop — Tuesday 9am-12pm, $<span class="amount">100</span></label>
+        <label id="chk5"><input class="box" type="checkbox" name="node" value='5'> Node.js Workshop — Tuesday 1pm-4pm, $<span class="amount">100</span></label>
+        <label id="chk6"><input class="box" type="checkbox" name="build-tools" value='6'> Build tools Workshop — Wednesday 9am-12pm, $<span class="amount">100</span></label>
+        <label id="chk7"><input class="box" type="checkbox" name="npm" value='7'> npm Workshop — Wednesday 1pm-4pm, $<span class="amount">100</span></label>
+        <td>Total($): </td><td><div id="total"></div></td>
 
       </fieldset>
       <fieldset>
