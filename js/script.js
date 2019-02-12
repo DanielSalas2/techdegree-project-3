@@ -61,4 +61,22 @@ $('.box').change(function(){
    });
    $('#total').text(total);
 });
+
+
+$('#payment').change(function(){
+        if ($(this).val() !== "select_method")
+         {
+            $('#remov').hide();
+        }
+    });
+
+
+         $('#payment').change(function(){
+             $('.credit-card').hide();
+             $('#' + $(this).val()).show();
+         });
+
+
+
+
 });
