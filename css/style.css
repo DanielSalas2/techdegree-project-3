@@ -119,9 +119,9 @@ button:hover {
 
 .errorMessage{
   color: white;
-  background-color: #F2BE5C;
-  padding: 15px;
-  border-radius: 5px;
+  border-radius: 7px;
+  background-color: #770202;
+  padding: 20px;
   display: block;
   width: calc(100%);
   margin-bottom: 20px;

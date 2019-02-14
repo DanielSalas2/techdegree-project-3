@@ -92,6 +92,7 @@
         <label id="chk6"><input class="box" type="checkbox" name="build-tools" value='6'> Build tools Workshop — Wednesday 9am-12pm, $<span class="amount">100</span></label>
         <label id="chk7"><input class="box" type="checkbox" name="npm" value='7'> npm Workshop — Wednesday 1pm-4pm, $<span class="amount">100</span></label>
         <td>Total($): </td><td><div id="total"></div></td>
+        <span class="act errorMessage">Please register for at least one activity</span>
 
       </fieldset>
       <fieldset>
@@ -110,19 +111,22 @@
           <div class="col-6 col">
             <label for="cc-num">Card Number:</label>
         	  <input id="cc-num" name="user_cc-num" type="text">
+            <span class="ccnum errorMessage clearfix::after">Please enter a valid credit card number</span>
           </div>
 
           <div class="col-3 col">
             <label for="zip">Zip Code:</label>
             <input id="zip" name="user_zip" type="text">
+            <span class="zip errorMessage">Please enter a 5 digit zip code</span>
           </div>
 
           <div class="col-3 col">
             <label for="cvv">CVV:</label>
             <input id="cvv" name="user_cvv" type="text">
+            <span class="cvv errorMessage">Please enter a 3 digit CVV number</span>
           </div>
 
-          <label for="exp-month">Expiration Date:</label>
+          <label id="fits" for="exp-month">Expiration Date:</label>
           <select id="exp-month" name="user_exp-month">
             <option value="1">1 - January</option>
             <option value="2">2 - February</option>

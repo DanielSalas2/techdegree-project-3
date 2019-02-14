@@ -33,7 +33,6 @@ $(document).ready(function() {
 
 
 
-
 //These variables grey out an activity when a user selects one that conflicts with other
 var $act1 = $('.activities').find('input[value="2"]').click(function() {
   $act2.prop('disabled', $act1.is(':checked'));
@@ -80,37 +79,129 @@ $('#payment').change(function(){
 
 
 
-//this is the validation
-/*$("form").submit(function (e) {
-      $('.validate', this).each(function () {
-          if ($(this).val() == "") {
 
-                e.preventDefault();
-
-                $(this).next('.validation').show();
-            } else {
-                $(this).next('.validation').hide();
-            }
-      });
-    });*/
 const namePat = /^[a-z]+[\s]?[a-z]+$/i;
-const nameErr = $(".nameflsh ").hide();
+const nameErr = $(".nameErr").hide();
 
-const emailPat = /^[^@]+@[^@.]+\.[a-z]+$/i;
-const mailErr = $(".mailflsh ").hide();
+const mailPat = /^[^@]+@[^@.]+\.[a-z]+$/i;
+const mailErr = $(".mailErr").hide();
 
-const actErr = $(".act ").hide();
+const actErr = $(".act").hide();
 
 const ccPat = /^\d{13,16}$/;
-const ccErr = $(".ccnum ").hide();
+const ccErr = $(".ccnum").hide();
 
 const zipPat = /^\d{5}$/;
-const zipErr = $(".zip ").hide();
+const zipErr = $(".zip").hide();
 
 const cvvPat = /^\d{3}$/;
-const cvvErr = $(".cvv ").hide();
+const cvvErr = $(".cvv").hide();
+
+$('form').on('submit', function() {
 
 
+        let namePut = $('#name').val();
+        let mailPut = $('#mail').val();
+        let chkBox = (!$("input:checkbox").is(":checked"));
+        let ccPut = $('#cc-num').val();
+        let zipPut = $('#zip').val();
+        let cvvPut = $('#cvv').val();
+        let payInfo = $('#payment').val();
+        let errors = false;
+
+
+        if (!namePat.test(namePut) ) {
+            $("#name").css("border-color", "#ff0048");
+            nameErr.fadeIn().show(1000);
+            }
+        else if (namePat.test(namePut) ) {
+            $("#name").css("border-color", "#770202");
+            nameErr.fadeOut().show(1000);
+            }
+
+
+        if (!mailPat.test(mailPut) ) {
+            $("#mail").css("border-color", "#ff0048");
+            mailErr.fadeIn().show(1000);
+            }
+        else if (mailPat.test(mailPut) ) {
+            $("#mail").css("border-color", "#770202");
+            mailErr.fadeOut().hide(1000);
+            }
+
+
+        if (chkBox == true) {
+            $("input.submit-btn").prop("disabled", true);
+            actErr.fadeIn().show(1000);
+        } else {
+            $("input.submit-btn").prop("disabled", true);
+            actErr.fadeOut().hide(1000);
+            }
+
+
+        if (!ccPat.test(ccPut) ) {
+            $("#cc-num").css("border-color", "#ff0048");
+            $(".col-3").css("margin-bottom", "82px");
+            $("#fits").css("margin-right", "88px");
+            ccErr.fadeIn().show(1000);
+            }
+        else if (ccPat.test(ccPut) ) {
+            $("#cc-num").css("border-color", "#770202");
+            $(".col-3").css("margin-bottom", "1em");
+            ccErr.fadeOut().hide(1000);
+          }
+
+
+        if (!zipPat.test(zipPut) ) {
+            $("#zip").css("border-color", "#ff0048");
+            $("#fits").css("margin-right", "88px");
+            zipErr.fadeIn().show(1000);
+            }
+        else if (zipPat.test(zipPut) ) {
+            $("#zip").css("border-color", "#770202");
+            $("#fits").css("margin-right", "88px");
+            zipErr.fadeOut().hide(1000);
+            }
+
+        if (!cvvPat.test(cvvPut) ) {
+            $("#cvv").css("border-color", "#ff0048");
+            $(".col-3").css("margin-bottom", "1em");
+            cvvErr.fadeIn().show(1000);
+            }
+        else if (cvvPat.test(cvvPut) ) {
+            $("#cvv").css("border-color", "#770202");
+            $(".col-3").css("margin-bottom", "1em");
+            cvvErr.fadeOut().hide(1000);
+            }
+
+
+        if (namePut == '' ||  !namePat.test(namePut)) {
+            errors = true;
+        }
+        if (mailPut == '' ||  !mailPat.test(mailPut)) {
+            errors = true;
+        }
+        if (chkBox == true) {
+            errors = true;
+        }
+        if (payInfo == 'credit card') {
+            if (ccPut == '' ||  !ccPat.test(ccPut)) {
+                errors = true;
+            }
+            if (zipPut == '' ||  !zipPat.test(zipPut)) {
+                errors = true;
+            }
+            if (cvvPut == '' ||  !cvvPat.test(cvvPut)) {
+                errors = true;
+            }
+        }
+        if (errors == true) {
+
+            return false;
+        } else {
+            return true;
+        }
+});
 
 
 
