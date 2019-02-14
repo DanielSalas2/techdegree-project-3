@@ -20,16 +20,18 @@
       <h1>Full Stack Conf</h1>
     </header>
 
-    <form action="index.html" method="post">
+    <form action="index.html">
 
       <fieldset>
         <legend>Basic Info</legend>
 
         <label for="name">Name:</label>
-        <input type="text" id="name" name="user_name">
+        <input type="text" id="name" class ="validate" name="user_name">
+        <span class="nameErr errorMessage">field cannot be blank</span>
 
         <label for="mail">Email:</label>
-        <input type="email" id="mail" name="user_email">
+        <input type="email" id="mail"class="validate" name="user_email">
+        <span class="mailErr errorMessage">valid email is required</span>
 
         <label for="title">Job Role</label>
         <select id="title" name="user_title">
@@ -81,6 +83,7 @@
 
       <fieldset class="activities">
         <legend>Register for Activities</legend>
+
         <label id="chk1"><input class="box" type="checkbox" name="all" value='1'> Main Conference — $<span class="amount">200</span></label>
         <label id="chk2"><input class="box" type="checkbox" name="js-frameworks" value='2'> JavaScript Frameworks Workshop — Tuesday 9am-12pm, $<span class="amount">100</span></label>
         <label id="chk3"><input class="box" type="checkbox" name="js-libs" value='3'> JavaScript Libraries Workshop — Tuesday 1pm-4pm, $<span class="amount">100</span></label>
@@ -154,7 +157,7 @@
 
       </fieldset>
 
-      <button type="submit">Register</button>
+      <button type="submit" type="submit" value="Submit">Register</button>
 
     </form>
 

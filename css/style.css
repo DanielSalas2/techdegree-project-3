@@ -117,6 +117,16 @@ button:hover {
   Page Styles
 ==================================== */
 
+.errorMessage{
+  color: white;
+  background-color: #F2BE5C;
+  padding: 15px;
+  border-radius: 5px;
+  display: block;
+  width: calc(100%);
+  margin-bottom: 20px;
+}
+
 .container {
 	margin: auto;
 	max-width: 680px;
@@ -134,7 +144,9 @@ button:hover {
 .credit-card {
 	margin-top: 1.25em;
 }
-
+.validation {
+  display: none;
+}
 /* =================================
   Helper Classes
 ==================================== */

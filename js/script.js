@@ -62,7 +62,9 @@ $('.box').change(function(){
    $('#total').text(total);
 });
 
-
+//makes the credit card option default
+$('#paypal').hide();
+$('#bitcoin').hide();
 $('#payment').change(function(){
         if ($(this).val() !== "select_method")
          {
@@ -71,10 +73,48 @@ $('#payment').change(function(){
     });
 
 
-         $('#payment').change(function(){
-             $('.credit-card').hide();
-             $('#' + $(this).val()).show();
-         });
+$('#payment').change(function(){
+        $('.credit-card').hide();
+       $('#' + $(this).val()).show();
+     });
+
+
+
+//this is the validation
+/*$("form").submit(function (e) {
+      $('.validate', this).each(function () {
+          if ($(this).val() == "") {
+
+                e.preventDefault();
+
+                $(this).next('.validation').show();
+            } else {
+                $(this).next('.validation').hide();
+            }
+      });
+    });*/
+const namePat = /^[a-z]+[\s]?[a-z]+$/i;
+const nameErr = $(".nameflsh ").hide();
+
+const emailPat = /^[^@]+@[^@.]+\.[a-z]+$/i;
+const mailErr = $(".mailflsh ").hide();
+
+const actErr = $(".act ").hide();
+
+const ccPat = /^\d{13,16}$/;
+const ccErr = $(".ccnum ").hide();
+
+const zipPat = /^\d{5}$/;
+const zipErr = $(".zip ").hide();
+
+const cvvPat = /^\d{3}$/;
+const cvvErr = $(".cvv ").hide();
+
+
+
+
+
+
 
 
 
