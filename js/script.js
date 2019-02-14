@@ -1,6 +1,6 @@
 //this sets a focus on the first text field
 $(document).ready(function() {
-    $('form:first *:input[type!=hidden]:first').focus();
+     $( "#name" ).focus();
     $('#other-title').hide();//job role field is not shown by default
 
   //shows the job role field when other is selected
@@ -14,23 +14,66 @@ $(document).ready(function() {
     $('#other-title').hide();
   });
 
-  //using the Change method to change the T Shirt selection dropdown menu
-  $('#design').on('change', function (){
-    let selectedValue = $(this).val();
-    //hides heart options and shows puns
-    if (selectedValue === 'js puns')
-    {
-      $('.hidePun').show();
-      $('.hideHeart').hide();
-    }
-    //hides pun options and shows heart colors
-    else if(selectedValue === 'heart js')
-    {
-      $('.hideHeart').show();
-      $('.hidePun').hide();
-    }
-  });
 
+  //hides the color options by default
+   $('#colors-js-puns').hide();
+   $('#colors-js-puns option[value="cornflowerblue"]').hide();
+   $('#colors-js-puns option[value="darkslategrey"]').hide();
+   $('#colors-js-puns option[value="gold"]').hide();
+   $('#colors-js-puns option[value="tomato"]').hide();
+   $('#colors-js-puns option[value="steelblue"]').hide();
+   $('#colors-js-puns option[value="dimgrey"]').hide();
+
+
+
+
+
+//using the Change method to change the T Shirt selection dropdown menu
+ $('#design').on('change', function(e){
+
+    let select = $(this).val();
+//hides heart options and shows puns
+   if (select === 'js puns') {
+
+   $('#colors-js-puns').show();
+   $('#colors-js-puns option[value="cornflowerblue"]').show().attr('selected','selected');
+   $('#colors-js-puns option[value="darkslategrey"]').show();
+   $('#colors-js-puns option[value="gold"]').show();
+
+   $('#colors-js-puns option[value="tomato"]').hide().removeAttr("selected");
+   $('#colors-js-puns option[value="steelblue"]').hide();
+   $('#colors-js-puns option[value="dimgrey"]').hide();
+
+
+   }
+//hides pun options and shows heart colors
+else if (select === 'heart js') {
+    $('#colors-js-puns').show();
+
+    $('#colors-js-puns option[value="tomato"]').show().attr('selected','selected');
+    $('#colors-js-puns option[value="steelblue"]').show();
+    $('#colors-js-puns option[value="dimgrey"]').show();
+
+    $('#colors-js-puns option[value="cornflowerblue"]').hide().removeAttr("selected");
+   $('#colors-js-puns option[value="darkslategrey"]').hide();
+   $('#colors-js-puns option[value="gold"]').hide();
+
+}
+//hides the options if neither are picked
+  else
+  {
+    $('#colors-js-puns').hide();
+    $('#colors-js-puns option[value="tomato"]').hide();
+    $('#colors-js-puns option[value="steelblue"]').hide();
+    $('#colors-js-puns option[value="dimgrey"]').hide();
+
+    $('#colors-js-puns option[value="cornflowerblue"]').hide();
+   $('#colors-js-puns option[value="darkslategrey"]').hide();
+   $('#colors-js-puns option[value="gold"]').hide();
+
+  }
+
+});
 
 
 //These variables grey out an activity when a user selects one that conflicts with other
