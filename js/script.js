@@ -1,6 +1,42 @@
+//vanilla JS
+const spanEr = document.createElement('p');
+const firstMenu = document.getElementsByTagName('span')[1];
+firstMenu.appendChild(spanEr);
+firstMenu.classList.add("nameErr", "errorMessage");
+firstMenu.innerHTML = "field cannot be blank";
+
+const secondMenu = document.getElementsByTagName('span')[2];
+secondMenu.appendChild(spanEr);
+secondMenu.classList.add("mailErr", "errorMessage");
+secondMenu.innerHTML = "enter a valid Email address";
+
+const thirdMenu = document.getElementsByTagName('span')[10];
+thirdMenu.appendChild(spanEr);
+thirdMenu.classList.add("act", "errorMessage");
+thirdMenu.innerHTML = "please select at least one activity";
+
+const fourthMenu = document.getElementsByTagName('span')[11];
+fourthMenu.appendChild(spanEr);
+fourthMenu.classList.add("ccnum", "errorMessage" ,"clearfix::after");
+fourthMenu.innerHTML = "Please enter a valid credit card number";
+
+const fifthMenu = document.getElementsByTagName('span')[12];
+fifthMenu.appendChild(spanEr);
+fifthMenu.classList.add("zip", "errorMessage");
+fifthMenu.innerHTML = "Please enter a valid 5 digit zip code";
+
+const sixthMenu = document.getElementsByTagName('span')[13];
+sixthMenu.appendChild(spanEr);
+sixthMenu.classList.add("cvv", "errorMessage");
+sixthMenu.innerHTML = "Please enter a 3 digit CVV number";
+
+
 //this sets a focus on the first text field
 $(document).ready(function() {
-     $( "#name" ).focus();
+
+
+
+    $( "#name" ).focus();
     $('#other-title').hide();//job role field is not shown by default
 
   //shows the job role field when other is selected
@@ -13,6 +49,7 @@ $(document).ready(function() {
   {
     $('#other-title').hide();
   });
+
 
 
   //hides the color options by default
@@ -107,12 +144,10 @@ $('.box').change(function(){
 //makes the credit card option default
 $('#paypal').hide();
 $('#bitcoin').hide();
-$('#payment').change(function(){
-        if ($(this).val() !== "select_method")
-         {
-            $('#remov').hide();
-        }
-    });
+
+//hides the "select payment" option. When JS is turn off, it will show up
+$("option[value='select_method']").remove();
+
 
 
 $('#payment').change(function(){
@@ -159,7 +194,7 @@ $('form').on('submit', function() {
             }
         else if (namePat.test(namePut) ) {
             $("#name").css("border-color", "#770202");
-            nameErr.fadeOut().show(1000);
+            nameErr.fadeOut().hide(1000);
             }
 
 

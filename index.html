@@ -6,11 +6,6 @@
 	<title>Register for Full Stack Conf</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="css/style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-			    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			    crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
-
 </head>
 <body>
 	<div class="container">
@@ -22,16 +17,18 @@
 
     <form action="index.html">
 
-      <fieldset>
+      <fieldset id="firstField">
         <legend>Basic Info</legend>
 
         <label for="name">Name:</label>
         <input type="text" id="name" class ="validate" name="user_name">
-        <span class="nameErr errorMessage">field cannot be blank</span>
+        <span></span>
+
 
         <label for="mail">Email:</label>
         <input type="email" id="mail"class="validate" name="user_email">
-        <span class="mailErr errorMessage">valid email is required</span>
+        <span></span>
+        
 
         <label for="title">Job Role</label>
         <select id="title" name="user_title">
@@ -92,7 +89,8 @@
         <label id="chk6"><input class="box" type="checkbox" name="build-tools" value='6'> Build tools Workshop — Wednesday 9am-12pm, $<span class="amount">100</span></label>
         <label id="chk7"><input class="box" type="checkbox" name="npm" value='7'> npm Workshop — Wednesday 1pm-4pm, $<span class="amount">100</span></label>
         <td>Total($): </td><td><div id="total"></div></td>
-        <span class="act errorMessage">Please register for at least one activity</span>
+        <span></span>
+        <!-- <span class="act errorMessage">Please register for at least one activity</span> -->
 
       </fieldset>
       <fieldset>
@@ -111,19 +109,22 @@
           <div class="col-6 col">
             <label for="cc-num">Card Number:</label>
         	  <input id="cc-num" name="user_cc-num" type="text">
-            <span class="ccnum errorMessage clearfix::after">Please enter a valid credit card number</span>
+            <span></span>
+
           </div>
 
           <div class="col-3 col">
             <label for="zip">Zip Code:</label>
             <input id="zip" name="user_zip" type="text">
-            <span class="zip errorMessage">Please enter a 5 digit zip code</span>
+            <span></span>
+
           </div>
 
           <div class="col-3 col">
             <label for="cvv">CVV:</label>
             <input id="cvv" name="user_cvv" type="text">
-            <span class="cvv errorMessage">Please enter a 3 digit CVV number</span>
+            <span></span>
+
           </div>
 
           <label id="fits" for="exp-month">Expiration Date:</label>
@@ -166,5 +167,9 @@
     </form>
 
 	</div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
