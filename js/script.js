@@ -268,7 +268,7 @@ $('form').on('submit', function() {
         if (chkBox == true) {
             errors = true;
         }
-        if (payInfo == 'credit card') {
+        if (payInfo == 'credit-card') {
             if (ccPut == '' ||  !ccPat.test(ccPut)) {
                 errors = true;
             }
