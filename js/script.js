@@ -31,25 +31,46 @@ sixthMenu.classList.add("cvv", "errorMessage");
 sixthMenu.innerHTML = "Please enter a 3 digit CVV number";
 
 
+const namePat = /^[a-z]+[\s]?[a-z]+$/i;
+const nameErr = $(".nameErr").hide();
+
+const mailPat = /^[^@]+@[^@.]+\.[a-z]+$/i;
+const mailErr = $(".mailErr").hide();
+
+const actErr = $(".act").hide();
+
+const ccPat = /^\d{13,16}$/;
+const ccErr = $(".ccnum").hide();
+
+const zipPat = /^\d{5}$/;
+const zipErr = $(".zip").hide();
+
+const cvvPat = /^\d{3}$/;
+const cvvErr = $(".cvv").hide();
+
+
 //this sets a focus on the first text field
 $(document).ready(function() {
-
-
-
+    //name focused first
     $( "#name" ).focus();
-    $('#other-title').hide();//job role field is not shown by default
+    //job role field is not shown by default
+    $('#other-title').hide();
 
   //shows the job role field when other is selected
-  $("#show").click(function()
+  $("#title").change(function()
   {
-    $('#other-title').show();
-  });
-  //hides job role field when other is deselected
-  $(".hid").click(function()
-  {
-    $('#other-title').hide();
-  });
+    let choice = $(this).val();
 
+    if (choice === 'other'){
+
+    $('#other-title').show();
+
+      }
+      //hides it when deselected
+    else{
+      $('#other-title').hide();
+    }
+  });
 
 
   //hides the color options by default
@@ -155,26 +176,11 @@ $('#payment').change(function(){
        $('#' + $(this).val()).show();
      });
 
+});
 
 
 
-const namePat = /^[a-z]+[\s]?[a-z]+$/i;
-const nameErr = $(".nameErr").hide();
-
-const mailPat = /^[^@]+@[^@.]+\.[a-z]+$/i;
-const mailErr = $(".mailErr").hide();
-
-const actErr = $(".act").hide();
-
-const ccPat = /^\d{13,16}$/;
-const ccErr = $(".ccnum").hide();
-
-const zipPat = /^\d{5}$/;
-const zipErr = $(".zip").hide();
-
-const cvvPat = /^\d{3}$/;
-const cvvErr = $(".cvv").hide();
-
+$(document).ready(function() {
 $('form').on('submit', function() {
 
 
@@ -280,12 +286,4 @@ $('form').on('submit', function() {
             return true;
         }
 });
-
-
-
-
-
-
-
-
 });
